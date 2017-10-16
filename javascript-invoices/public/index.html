@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/select.css">
+  </head>
+  <body ng-app="app">
+    <div ng-include="'/modules/core/views/menu.html'"></div>
+
+    <div class="container" ng-view></div>
+
+  </body>
+
+  <script type="text/javascript" src="/js/lib/jquery/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="/js/lib/underscore-min.js"></script>
+  <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="/js/lib/angular/angularjs.js"></script>
+  <script type="text/javascript" src="/js/lib/angular/angular-route.js"></script>
+  <script type="text/javascript" src="/js/lib/angular/angular-resource.min.js"></script>
+  <script type="text/javascript" src="/js/lib/angular/ng-table.min.js"></script>
+  <script type="text/javascript" src="/bootstrap/js/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript" src="/app.js"></script>
+
+  <!--Core-->
+  <script src="/modules/core/core.module.js"></script>
+  <script src="/modules/core/services/core.service.js"></script>
+
+  <!--Invoices-->
+  <script src="/modules/invoices/invoices.module.js"></script>
+  <script src="/modules/invoices/services/invoices.service.js"></script>
+  <script src="/modules/invoices/controllers/invoices.controller.js"></script>
+
+  <!--Products-->
+  <script src="/modules/products/product.module.js"></script>
+  <script src="/modules/products/services/product.service.js"></script>
+  <script src="/modules/products/controllers/product.controller.js"></script>
+
+  <!--Customers-->
+  <script src="/modules/customers/customers.module.js"></script>
+  <script src="/modules/customers/services/customers.service.js"></script>
+  <script src="/modules/customers/controllers/customers.controller.js"></script>
+</html>

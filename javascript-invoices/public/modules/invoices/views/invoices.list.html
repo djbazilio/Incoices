@@ -1,0 +1,35 @@
+<div>
+    <div class="text-right">
+        <a href="#invoices/edit/new"><button class="btn btn-info">New</button></a>
+    </div>
+    <table ng-table="vm.tParams" class="table table-bordered table-hover table-condensed editable-table demoTable">
+        <colgroup>
+            <col width="5%" />
+            <col width="30%" />
+            <col width="15%" />
+            <col width="15%" />
+            <col width="20%" />
+            <col width="15%" />
+        </colgroup>
+        <tr ng-repeat="row in $data" ng-form="rowForm" demo-tracked-table-row="row">
+            <td data-title="'id'">{{row.id}}</td>
+            <td title="'Customer'" filter="{customer_id: 'text'}" sortable="'customer_id'" demo-tracked-table-cell>
+                <span class="editable-text">{{vm.customersById[row.customer_id][0].name}}</span>
+            </td>
+            <td title="'Total'" filter="{total: 'number'}" sortable="'total'" >
+                <span class="editable-text">{{row.total}}</span>
+            </td>
+            <td title="'discount'" filter="{discount: 'number'}" sortable="'discount'"  ng-form="discount">
+                <span  class="editable-text">{{row.discount}}</span>
+            </td>
+            <td title="'updatedAt'" filter="{updatedAt: 'text'}" sortable="'updatedAt'"  ng-form="updatedAt">
+                <span  class="editable-text">{{row.updatedAt | date:'medium'}}</span>
+            </td>
+            <td>
+                <a href="#invoices/edit/{{row.id}}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
+                <button class="btn btn-danger btn-sm" ng-click="vm.delete(row)" ng-if="!row.isEditing"><span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+        </tr>
+    </table>
+
+</div>

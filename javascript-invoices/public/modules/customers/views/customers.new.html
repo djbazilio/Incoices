@@ -1,0 +1,23 @@
+<div>
+    <h2>New customers</h2>
+    <form class="text-left" ng-init="entity={}">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control"  ng-model="entity.name" placeholder="Customer name">
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input class="form-control" ng-model="entity.address" >
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" placeholder="Phone like xxx-xxx-xxxx" class="form-control" ng-model="entity.phone" >
+        </div>
+    </form>
+    <div class="text-right">
+        <div class="btn-group">
+            <button type="button" class="btn btn-success" ng-disabled="!entity.name||!entity.address||!entity.phone" ng-click="vm.newCustomer(entity)">Save</button>
+            <a href="#customers" class="btn btn-warning">Cancel</a>
+        </div>
+    </div>
+</div>

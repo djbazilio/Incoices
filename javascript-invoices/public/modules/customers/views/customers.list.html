@@ -1,0 +1,46 @@
+<div>
+    <div class="text-right">
+        <a href="#customers/new"><button class="btn btn-info">New</button></a>
+    </div>
+    <table ng-table="vm.tParams" class="table table-bordered table-hover table-condensed editable-table demoTable">
+        <colgroup>
+            <col width="5%" />
+            <col width="25%" />
+            <col width="25%" />
+            <col width="10%" />
+            <col width="20%" />
+            <col width="15%" />
+        </colgroup>
+        <tr ng-repeat="row in $data" ng-form="rowForm" demo-tracked-table-row="row">
+            <td data-title="'id'">{{row.id}}</td>
+            <td title="'Name'" filter="{name: 'text'}" sortable="'name'" ng-switch="row.isEditing" ng-class="name.$dirty ? 'bg-warning' : ''" ng-form="name" demo-tracked-table-cell>
+                <span ng-switch-default class="editable-text">{{row.name}}</span>
+                <div class="controls" ng-class="name.$invalid && name.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                    <input type="text" name="name" ng-model="row.name" class="editable-input form-control input-sm" required />
+                </div>
+            </td>
+            <td title="'Address'" filter="{price: 'text'}" sortable="'address'" ng-switch="row.isEditing" ng-class="price.$dirty ? 'bg-warning' : ''" ng-form="address" demo-tracked-table-cell>
+                <span ng-switch-default class="editable-text">{{row.address}}</span>
+                <div class="controls" ng-class="address.$invalid && address.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                    <input type="text" name="address" ng-model="row.address" class="editable-input form-control input-sm" required/>
+                </div>
+            </td>
+            <td title="'Phone'" filter="{phone: 'text'}" sortable="'phone'" ng-switch="row.isEditing" ng-class="phone.$dirty ? 'bg-warning' : ''" ng-form="phone" demo-tracked-table-cell>
+                <span ng-switch-default class="editable-text">{{row.phone}}</span>
+                <div class="controls" ng-class="phone.$invalid && phone.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                    <input type="text" name="phone" ng-model="row.phone" class="editable-input form-control input-sm" required/>
+                </div>
+            </td>
+            <td title="'updatedAt'" filter="{updatedAt: 'text'}" sortable="'updatedAt'"  ng-form="updatedAt" l>
+                <span  class="editable-text">{{row.updatedAt | date:'medium'}}</span>
+            </td>
+            <td>
+                <button class="btn btn-primary btn-sm" ng-click="vm.save(row, rowForm)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
+                <button class="btn btn-default btn-sm" ng-click="vm.cancel(row, rowForm)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
+                <button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing"><span class="glyphicon glyphicon-pencil"></span></button>
+                <button class="btn btn-danger btn-sm" ng-click="vm.delete(row)" ng-if="!row.isEditing"><span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+        </tr>
+    </table>
+
+</div>
